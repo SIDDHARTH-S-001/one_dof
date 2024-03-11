@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="one_dof" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find one_dof_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find one_dof_description)/urdf/one_dof.trans" />
+<xacro:include filename="$(find one_dof_description)/urdf/one_dof.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.012102313902654016 0.01290292105437145 0.009999999316170799" rpy="0 0 0"/>
+    <mass value="0.24909707230016578"/>
+    <inertia ixx="4.3e-05" iyy="4e-05" izz="6.7e-05" ixy="-1e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://one_dof_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque252525"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://one_dof_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_1">
+  <inertial>
+    <origin xyz="0.0009997920934277649 -2.0094058074404675e-07 0.1" rpy="0 0 0"/>
+    <mass value="0.0106"/>
+    <inertia ixx="3.6e-05" iyy="3.5e-05" izz="1e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.040149 -0.022797 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://one_dof_description/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="abs_white"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.040149 -0.022797 -0.01" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://one_dof_description/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint" type="continuous">
+  <origin xyz="0.040149 0.022797 0.01" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+</robot>
