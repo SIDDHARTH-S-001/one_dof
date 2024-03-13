@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- Load Controller Configuration -->
+  <rosparam file="$(find one_dof_description)/config/position_controller.yaml" command="load"/>
+
+  <!-- Controller Manager -->
+  <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+        args="joint_state_controller joint_position_controller"/>
+
+  <!-- Robot State Publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+</launch>

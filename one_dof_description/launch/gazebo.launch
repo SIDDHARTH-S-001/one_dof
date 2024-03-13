@@ -2,10 +2,13 @@
   <param name="robot_description" command="$(find xacro)/xacro $(find one_dof_description)/urdf/one_dof.xacro"/>
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model one_dof"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="paused" value="true"/>
+    <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
+
+  <include file="$(find one_dof_description)/launch/position_controller.launch"/>
+
 </launch>

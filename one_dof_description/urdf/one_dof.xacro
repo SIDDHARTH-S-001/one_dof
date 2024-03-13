@@ -48,6 +48,7 @@
 
 <joint name="joint" type="continuous">
   <origin xyz="0.040149 0.022797 0.01" rpy="0 0 0"/>
+  <!-- <limit effort="1000.0" lower="-0.77" upper="0.77" velocity="0.5"/> -->
   <parent link="base_link"/>
   <child link="link_1"/>
   <axis xyz="1.0 0.0 -0.0"/>
